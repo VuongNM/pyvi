@@ -1,12 +1,10 @@
 import codecs
-import Queue
 import multiprocessing as mp
 from pyvi.pyvi import ViTokenizer
 import datetime 
 import sys 
 
-path = "./data/fbdata.neg"
-output_path = path + ".out"
+
 output_file = None 
 
 def process_chunk(chunk):
@@ -18,7 +16,6 @@ def process_chunk(chunk):
             out = ViTokenizer.tokenize( line )
             ret.append(out)
     return ret
-    # return chunk
 
 def write_file_callback(ret):
     for i in ret:
